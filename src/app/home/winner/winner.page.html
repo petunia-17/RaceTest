@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="danger">
+     <ion-button (click)="closeModal()">Close Modal</ion-button>
+    <ion-title>{{season}} winners</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+
+  <ion-content fullscreen class="ion-padding" scroll-y="false">
+    <ion-slides *ngIf="drivers.length > 0">
+
+    
+      <!-- code: "ALO"
+      dateOfBirth: "1981-07-29"
+      driverId: "alonso"
+      familyName: "Alonso"
+      givenName: "Fernando"
+      nationality: "Spanish"
+      permanentNumber: "14"
+      url: "http://en.wikiped -->
+      <ion-slide *ngFor="let item of drivers">
+        <ion-card>
+          <img src="https://image.winudf.com/v2/image/Y29tLlFhaXJlZW5BemtpYS53aWxsaWFtLmJtdy5mMS5XaWxsaWFtQk1XRjFXYWxscGFwZXJfc2NyZWVuXzJfMTUzNzEzMTI5NF8wNTg/screen-2.jpg?fakeurl=1&type=.jpg" />
+          <ion-card-header>
+            <ion-card-subtitle>{{item.nationality}}</ion-card-subtitle>
+            <ion-card-title>{{item.givenName}}, {{item.familyName}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+          <div>
+            <span class="mr-3">driverId</span> : <span>{{item.driverId}}</span>
+          </div>
+          <div>
+            <span class="mr-3">date of birth</span> : <span>{{dateOfBirth}}</span>
+          </div>
+          <div>
+            <span class="mr-3">URL</span> :<a></a> <span style="color: #f75858;" (click)="gotoUrl(item.url)">{{item.url}}</span>
+          </div>
+          
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      
+    </ion-slides>
+    <ion-slides *ngIf="drivers.length == 0">
+      Loading ...
+    </ion-slides>
+  </ion-content>
+ 
+
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header [translucent]="true" class="ion-no-border" >
+  <ion-toolbar>
+    <ion-title class="mt-3">
+     <div class="test">
+      <div style="font-size: 32px;">
+        Welcome to
+      </div>
+      <div style="font-size: 32px;">
+        the Race App
+      </div>
+
+     
+      <div class="mt-3">
+        <label>Year range</label>
+        <ion-range id="dual-range"  min="2008" max="2021"  pin color="danger">
+          <ion-label slot="start">2008</ion-label>
+          <ion-label slot="end">2021</ion-label>>
+        </ion-range>
+      </div>
+     </div>
+      
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+  <div class="px-3 py-4">
+    <div class="card mt-5" *ngFor="let season of seasons" (click)="openModal(season)">
+      <div class="card-body ion-activatable ripple-parent">
+        <h5 class="card-title">{{season}}</h5>
+        <ion-ripple-effect></ion-ripple-effect>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>
