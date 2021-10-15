@@ -9,6 +9,7 @@ import { F1ServiceService } from '../f1-service.service';
 })
 export class WinnerPage implements OnInit {
 
+  //variables
   modalTitle: string;
   season: number;
   drivers:any[] =[];
@@ -20,9 +21,11 @@ export class WinnerPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     console.table(this.navParams);
     this.season = this.navParams.data.season;
-    
+
+    //for getting the data from the API 
     this.f1Service
     .getRaceResults(this.season,1)
     .subscribe((value:any )=> {
@@ -32,6 +35,7 @@ export class WinnerPage implements OnInit {
     });
   }
 
+//The modal used to display the data that is from the API key
   async closeModal() {
     this.f1Service
     .getRaceResults(this.season,1)

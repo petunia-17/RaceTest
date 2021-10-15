@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
 import { WinnerPage } from './winner/winner.page';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,15 +8,24 @@ import { WinnerPage } from './winner/winner.page';
 })
 export class HomePage implements OnInit {
 
+  //variables
   seasons:number[] =[];
   startYear:number =2005;
   endYear:number = 2021;
   dataReturned: any;
-  constructor( public modalController: ModalController) {}
+  rangeValue:string;
+
+  constructor( public modalController: ModalController) {
+
+    
+    
+  }
+  // the method inside  runs first
   ngOnInit(): void {
     this.setSeasonsArray()
   }
 
+  //method used to displays the years 
   setSeasonsArray(){
     for(let i=this.startYear;i<=this.endYear;i++){
       this.seasons.push(i);
@@ -47,5 +55,6 @@ export class HomePage implements OnInit {
 
     return await modal.present();
   }
+
 
 }

@@ -2,23 +2,24 @@
   <ion-toolbar>
     <ion-title class="mt-3">
      <div class="test">
-      <div style="font-size: 32px;">
-        Welcome to
+      <div class="header" style="font-size: 32px">
+        Welcome to   the Race App
       </div>
-      <div style="font-size: 32px;">
-        the Race App
-      </div>
+      
 
      
       <div class="mt-3">
-        <label>Year range</label>
-        <ion-range id="dual-range"  min="2008" max="2021"  pin color="danger">
-          <ion-label slot="start">2008</ion-label>
+        <label class="year ">Year range</label>
+        <ion-range  [(ngModel)]="rangeValue"  id="dual-range"  min="2005" max="2021"  pin color="danger">
+          <ion-label slot="start">2005</ion-label>
           <ion-label slot="end">2021</ion-label>>
         </ion-range>
+        <div class="item item-divider">
+          Range Value : {{rangeValue}}
+        </div>
       </div>
      </div>
-      
+  
       
     </ion-title>
   </ion-toolbar>
